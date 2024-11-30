@@ -1,0 +1,83 @@
+
+/* 웹 폰트 로드 */
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Diphylleia-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/Diphylleia-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 폰트 적용 */
+body {
+  font-family: 'GowunDodum-Regular', Arial, sans-serif;
+}
+
+}
+
+.audio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.audio-player {
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.audio-text {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+audio {
+    border-radius: 10px;
+    width: 100px;
+}
+
+.speech-bubble {
+    display: none;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.speech-text {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 220px;
+    font-size: 14px;
+    line-height: 1.5;
+}
