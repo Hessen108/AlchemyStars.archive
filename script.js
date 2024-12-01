@@ -1,3 +1,8 @@
+const imageLinks = {
+  "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
+  "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   // 각 오디오 파일에 대해 재생 버튼을 클릭하면 음성 재생 및 말풍선 표시
   const audioContainers = document.querySelectorAll('.audio-container'); // 모든 오디오 컨테이너 선택
@@ -8,6 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const bubble = document.getElementById(`bubble${index}`);
     const text = document.getElementById(`text${index}`);
     const profileImg = container.querySelector('.profile-img'); // 프로필 이미지
+    const imageName = container.getAttribute('data-image-name'); // play-icon, stop-icon 등
+    const imageViewLink = imageLinks[imageName]; // 링크 찾아오기
+    
+    const playIcon = container.querySelector('.play-icon');
+    playIcon.src = imageViewLink;  // 이미지 src에 링크 적용
+  });
+});
+
 
     // 각 컨테이너에서 data 속성 가져오기
     const title = container.getAttribute('data-title');

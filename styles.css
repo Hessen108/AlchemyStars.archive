@@ -71,7 +71,7 @@ body {
   padding: 0; /* 패딩 제거 */
   color: #000000;
   cursor: pointer;
-  font-size: 7px; /* 글자 크기 조정 */
+  font-size: 6px; /* 글자 크기 조정 */
 }
 
 .custom-play-button span {
