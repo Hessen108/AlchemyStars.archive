@@ -30,7 +30,7 @@ body {
 
 /* 오디오 컨테이너 스타일 */
 .audio-container {
-  width: 280px;
+  width: 240px;
   height: 28px;
   background-color: white;
   border: 1px solid black;
@@ -60,7 +60,7 @@ body {
   padding: 0; /* 패딩 제거 */
   color: #000000;
   cursor: pointer;
-  margin-right: 15px; /* 오른쪽에 위치 */
+  margin-right: 5px; /* 오른쪽에 위치 */
   font-size: 6px; /* 글자 크기 조정 */
 }
 
