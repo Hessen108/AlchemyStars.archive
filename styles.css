@@ -30,7 +30,7 @@ body {
 
 /* 오디오 컨테이너 스타일 */
 .audio-container {
-  width: 240px;
+  width: 200px;
   height: 28px;
   background-color: white;
   border: 1px solid black;
@@ -66,8 +66,8 @@ body {
 
 .custom-play-button img {
   display: block;
-  width: 24px;  /* 가로 크기 */
-  height: 24px; /* 세로 크기 */
+  width: 22px;  /* 가로 크기 */
+  height: 22px; /* 세로 크기 */
   margin: 0 auto;  /* 이미지 중앙 정렬 */
 }
 
