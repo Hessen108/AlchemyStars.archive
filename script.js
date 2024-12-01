@@ -11,18 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // 각 컨테이너에서 data 속성 가져오기
     const title = container.getAttribute('data-title');
     const content = container.getAttribute('data-content');
-    const audioLink = container.getAttribute('data-link'); // 음성 파일 링크
+    const audioId = container.getAttribute('data-id'); // E열에서 추출된 구글 드라이브 ID
 
     playButton.addEventListener("click", () => {
       // 버튼이 재생 중일 때
       if (iframe.style.display === 'none' || iframe.paused) {
         iframe.style.display = 'block'; // iframe 표시
-        const driveId = extractDriveId(audioLink);
-        if (driveId) {
-          iframe.src = `https://drive.google.com/file/d/${driveId}/preview`; // 구글 드라이브 음성 파일 링크 업데이트
-        } else {
-          console.error("구글 드라이브 ID 추출 실패");
-        }
+        iframe.src = `https://drive.google.com/file/d/${audioId}/preview`; // 구글 드라이브 음성 파일 링크 업데이트
+
         playButton.innerHTML = "<span>■</span>";  // 버튼을 '■'로 변경
 
         // 구글 드라이브 제공 재생 버튼도 클릭
@@ -54,10 +50,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-// 구글 드라이브 링크에서 파일 ID 추출 함수
-function extractDriveId(link) {
-  const regex = /(?:\/d\/|\/files\/)(.*?)(?:\/|$)/;
-  const match = link.match(regex);
-  return match ? match[1] : null;
-}
