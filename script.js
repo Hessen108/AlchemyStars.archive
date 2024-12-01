@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         playButton.addEventListener("click", () => {
             iframe.src = `https://drive.google.com/uc?export=download&id=${audioId}`;
             iframe.style.display = "none";
+            iframe.contentWindow.postMessage('play', '*'); // Google Drive iframe에서 재생
 
             // Google Drive iframe은 CORS 문제로 내부 요소 접근이 불가능합니다.
             // iframe의 autoplay 속성을 사용하는 방법이 권장됩니다.
