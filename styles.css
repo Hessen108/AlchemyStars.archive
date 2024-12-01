@@ -52,19 +52,6 @@ body {
   text-align: left;
 }
 
-.circle {
-  background-color: transparent;
-  width: 27px;       /* 너비 */
-  height: 27px;      /* 높이 */
-  border: 2px solid black;  /* 검은색 실선 테두리 */
-  border-radius: 50%;  /* 원형 만들기 */
-  display: inline-flex;  /* 버튼을 원형 안에 잘 배치할 수 있도록 */
-  align-items: center;
-  justify-content: center; /* 가운데 정렬 */
-  margin-right: 10px; /* 오른쪽에 위치 */
-  z-index: 1;  /* 버튼이 항상 가장 위에 표시되도록 설정 */
-}
-
 .custom-play-button {
   background-color: transparent;
   border: none;
@@ -72,6 +59,11 @@ body {
   color: #000000;
   cursor: pointer;
   font-size: 6px; /* 글자 크기 조정 */
+}
+
+.custom-play-button img {
+  width: 24px;
+  height: 24px;
 }
 
 .custom-play-button span {

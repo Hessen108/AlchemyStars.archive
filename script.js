@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const audioElement = container.querySelector('audio');
     const bubble = document.getElementById(`bubble${index}`);
     const text = document.getElementById(`text${index}`);
-    const playIcon = container.querySelector('.play-icon');
+    const playIcon = container.querySelector('.play-icon'); // img 선택자
+    const content = container.getAttribute('data-content'); // content 정의
+    
     const imageLinks = {
       "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
       "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audioElement.play();
         playIcon.src = imageLinks["stop-icon"];
         bubble.style.display = "flex";
-        bubble.classList.remove("hidden"); // 페이드 인
+        bubble.classList.remove("hidden");
         text.innerHTML = ""; 
         let i = 0;
         const interval = setInterval(() => {
@@ -31,22 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         audioElement.pause();
         playIcon.src = imageLinks["play-icon"];
-        bubble.classList.add("hidden"); // 페이드 아웃
+        bubble.classList.add("hidden");
         setTimeout(() => {
-          bubble.style.display = "none"; // 완전히 사라진 후 숨김 처리
+          bubble.style.display = "none";
         }, 2000);
       }
     });
 
-    // 오디오 재생 종료 시 아이콘 변경 및 말풍선 페이드 아웃 처리
     audioElement.addEventListener("ended", () => {
       playIcon.src = imageLinks["play-icon"];
       setTimeout(() => {
-        bubble.classList.add("hidden"); // 5초 후 페이드 아웃
+        bubble.classList.add("hidden");
       }, 5000);
       setTimeout(() => {
-        bubble.style.display = "none"; // 페이드 아웃 후 완전히 숨김
-      }, 7000); // 총 7초 (5초 대기 + 2초 페이드 아웃)
+        bubble.style.display = "none";
+      }, 7000);
     });
   });
 });
