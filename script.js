@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   audioContainers.forEach((container, index) => {
     const playButton = container.querySelector('.custom-play-button');
+    const audioElement = container.querySelector('audio'); // audio 요소 선택
     const bubble = document.getElementById(`bubble${index}`);
     const text = document.getElementById(`text${index}`);
     const profileImg = container.querySelector('.profile-img'); // 프로필 이미지
@@ -21,22 +22,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     playButton.addEventListener("click", () => {
-      const audio = new Audio(`https://drive.google.com/uc?export=download&id=${audioId}`);
-      audio.play();
-
-      playButton.innerHTML = "<span>■</span>"; // 버튼 변경
-      bubble.style.display = "flex";
-      text.innerHTML = ""; // 텍스트 초기화
-      const script = content;  // 대사 내용 가져오기
-      let i = 0;
-      const interval = setInterval(() => {
-        if (i < script.length) {
-          text.innerHTML += script.charAt(i);  // 한 글자씩 출력
-          i++;
-        } else {
-          clearInterval(interval);  // 모든 글자가 출력되면 종료
-        }
-      }, 100);  // 100ms마다 한 글자씩 나타냄
+      if (audioElement.paused) { // 음성이 정지된 상태라면
+        audioElement.play(); // 음성 재생
+        playButton.innerHTML = "<span>■</span>"; // 버튼을 정지 아이콘으로 변경
+        bubble.style.display = "flex"; // 말풍선 표시
+        text.innerHTML = ""; // 텍스트 초기화
+        const script = content; // 대사 내용 가져오기
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < script.length) {
+            text.innerHTML += script.charAt(i); // 한 글자씩 출력
+            i++;
+          } else {
+            clearInterval(interval); // 모든 글자가 출력되면 종료
+          }
+        }, 100); // 100ms마다 한 글자씩 나타냄
+      } else { // 음성이 재생 중이라면
+        audioElement.pause(); // 음성 정지
+        playButton.innerHTML = "<span>▶</span>"; // 버튼을 재생 아이콘으로 변경
+        bubble.style.display = "none"; // 음성 정지 시 말풍선 숨김
+      }
     });
   });
 });
