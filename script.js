@@ -18,29 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // 프로필 이미지 설정
     profileImg.style.backgroundImage = `url(${profileImageURL})`;
 
-    playButton.addEventListener("click", () => {
-      // 버튼 클릭 시 iframe의 재생 버튼 자동 클릭
-      const iframeContent = iframe.contentWindow;
-      iframeContent.document.querySelector('button').click(); // iframe 내부의 재생 버튼을 클릭
-
-        playButton.innerHTML = "<span>■</span>";  // 버튼을 '■'로 변경
-
-        // 말풍선 표시
+ playButton.addEventListener("click", () => {
+    iframe.src = `https://drive.google.com/uc?export=download&id=${audioId}`;
+    iframe.style.display = "none"; // iframe 숨기기 유지
+    const iframeContent = iframe.contentWindow || iframe.contentDocument;
+    
+    if (iframeContent) {
+        iframeContent.document.querySelector('button').click(); // iframe 내부의 재생 버튼을 클릭
+        playButton.innerHTML = "<span>■</span>"; // 버튼 변경
         bubble.style.display = "flex";
         text.innerHTML = ""; // 텍스트 초기화
-
-        // 타이핑 효과
         const script = content;  // 대사 내용 가져오기
-        let i = 0;
-        const interval = setInterval(() => {
-          if (i < script.length) {
-            text.innerHTML += script.charAt(i);  // 한 글자씩 출력
-            i++;
-          } else {
-            clearInterval(interval);  // 모든 글자가 출력되면 종료
-          }
-        }, 100);  // 100ms마다 한 글자씩 나타냄
-      } else {
+        startTypingEffect(text, content); // 타이핑 효과 시작
+    } else {
+        console.error("iframe content could not be loaded.");
         audio.pause();
         playButton.innerHTML = "<span>▶</span>";  // 버튼을 '▶'로 변경
         bubble.style.display = "none";  // 음성 정지 시 말풍선 숨김
@@ -48,3 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function startTypingEffect(element, text) {
+    element.innerHTML = ""; // 텍스트 초기화
+    let i = 0;
+
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i); // 한 글자씩 추가
+            i++;
+        } else {
+            clearInterval(interval); // 타이핑 완료 시 반복 종료
+        }
+    }, 100); // 100ms마다 한 글자 출력
+}
