@@ -45,7 +45,7 @@ body {
 
 /* 제목과 버튼 정렬 */
 .audio-text {
-  margin-left: 25px;
+  margin-left: 15px;
   font-size: 14px;
   font-weight: regular;
   flex-grow: 1;
@@ -86,7 +86,7 @@ body {
     margin-top: 10px;
     display: flex;
     align-items: center;
-    max-width: 80%;
+    max-width: 100%;
     transition: opacity 2s ease-out; /* 2초 동안 서서히 사라지는 효과 */
     opacity: 1; /* 기본 투명도 */
 }
