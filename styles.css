@@ -31,15 +31,15 @@ body {
 /* 오디오 컨테이너 스타일 */
 .audio-container {
   width: 300px;
-  height: 26px;
+  height: 30px;
   background-color: white;
   border: 1px solid black;
-  border-radius: 13px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 /* 제목과 버튼 정렬 */
@@ -58,7 +58,7 @@ body {
   padding: 10px 20px;
   color: #000000;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 9px;
 }
 
 /* 구글 재생 버튼 숨기기 */
