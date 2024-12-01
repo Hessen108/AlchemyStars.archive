@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   audioContainers.forEach((container, index) => {
     const playButton = container.querySelector('.custom-play-button');
-    const iframe = container.querySelector('iframe'); // iframe을 통해 구글 드라이브 음성 파일 재생
+    const audio = container.querySelector('audio'); // audio 태그 선택
     const bubble = document.getElementById(`bubble${index}`);
     const text = document.getElementById(`text${index}`);
-    const profileImg = container.querySelector('.profile-img'); //프로필 이미지
+    const profileImg = container.querySelector('.profile-img'); // 프로필 이미지
 
     // 각 컨테이너에서 data 속성 가져오기
     const title = container.getAttribute('data-title');
@@ -18,15 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // 프로필 이미지 설정
     profileImg.style.backgroundImage = `url(${profileImageURL})`;
 
- playButton.addEventListener("click", () => {
-    iframe.src = `https://drive.google.com/uc?export=download&id=${audioId}`;
-    iframe.style.display = "none"; // iframe 숨기기 유지
-    const iframeContent = iframe.contentWindow || iframe.contentDocument;
-    
-    if (iframeContent) {
-        iframeContent.document.querySelector('button').click(); // iframe 내부의 재생 버튼을 클릭
-        playButton.innerHTML = "<span>■</span>"; // 버튼 변경
-        bubble.style.display = "flex";
+    playButton.addEventListener("click", () => {
+      // 오디오 재생 시작
+      if (audio.paused) {
+        audio.play();
+        playButton.innerHTML = "<span>■</span>"; // 버튼 변경 (정지 버튼)
+        bubble.style.display = "flex"; // 말풍선 표시
         text.innerHTML = ""; // 텍스트 초기화
         const script = content;  // 대사 내용 가져오기
         let i = 0;
@@ -39,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }, 100);  // 100ms마다 한 글자씩 나타냄
       } else {
-        audio.pause();
+        audio.pause();  // 오디오 정지
         playButton.innerHTML = "<span>▶</span>";  // 버튼을 '▶'로 변경
         bubble.style.display = "none";  // 음성 정지 시 말풍선 숨김
       }
