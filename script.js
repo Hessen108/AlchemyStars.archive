@@ -19,10 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     profileImg.style.backgroundImage = `url(${profileImageURL})`;
 
     playButton.addEventListener("click", () => {
-      // 버튼이 재생 중일 때
-      if (audio.paused) {
-        audio.play();
-        iframe.src = `https://drive.google.com/file/d/${audioId}/preview`; // 구글 드라이브 음성 파일 링크 업데이트
+      // 버튼 클릭 시 iframe의 재생 버튼 자동 클릭
+      const iframeContent = iframe.contentWindow;
+      iframeContent.document.querySelector('button').click(); // iframe 내부의 재생 버튼을 클릭
 
         playButton.innerHTML = "<span>■</span>";  // 버튼을 '■'로 변경
 
