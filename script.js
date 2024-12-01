@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const audioContainers = document.querySelectorAll('.audio-container'); 
+  const imageLinks = {
+    "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
+    "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
+  };
 
   audioContainers.forEach((container, index) => {
     const playButton = container.querySelector('.custom-play-button');
@@ -8,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = document.getElementById(`text${index}`);
     const playIcon = container.querySelector('.play-icon'); // img 선택자
     const content = container.getAttribute('data-content'); // content 정의
-    
-    const imageLinks = {
-      "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
-      "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
-    };
+    playIcon.src = imageLinks["play-icon"];  // 초기 play 이미지 설정
+    playIcon.alt = "Play Icon";
+    playButton.appendChild(playIcon);
+
 
     playButton.addEventListener("click", () => {
+      const audioElement = container.querySelector('audio');
       if (audioElement.paused) {
         audioElement.play();
         playIcon.src = imageLinks["stop-icon"];

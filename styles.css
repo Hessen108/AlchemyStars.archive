@@ -53,17 +53,22 @@ body {
 }
 
 .custom-play-button {
+  display: flex;
+  align-items: center;  /* 세로 중앙 정렬 */
   background-color: transparent;
   border: none;
   padding: 0; /* 패딩 제거 */
   color: #000000;
   cursor: pointer;
+  margin-right: 15px; /* 오른쪽에 위치 */
   font-size: 6px; /* 글자 크기 조정 */
 }
 
 .custom-play-button img {
-  width: 24px;
-  height: 24px;
+  display: block;
+  width: 24px;  /* 가로 크기 */
+  height: 24px; /* 세로 크기 */
+  margin: 0 auto;  /* 이미지 중앙 정렬 */
 }
 
 .custom-play-button span {
