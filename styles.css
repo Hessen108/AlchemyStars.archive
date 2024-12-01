@@ -24,45 +24,46 @@
 /* 폰트 적용 */
 body {
   font-family: 'GowunDodum-Regular', Arial, sans-serif;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
-}
-
-/* iframe 내의 구글 드라이브 재생 버튼 숨기기 */
-iframe {
-  position: relative;
-  width: 100%;  /* 원하는 크기로 설정 */
-  height: 100%;
-}
-
-iframe::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  visibility: hidden;  /* iframe 내 버튼 숨기기 */
-}
-
-/* 재생 버튼을 오른쪽에 정렬 */
+/* 오디오 컨테이너 스타일 */
 .audio-container {
+  width: 300px;
+  height: 26px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 13px;
   display: flex;
-  justify-content: flex-end;  /* 오른쪽 정렬 */
   align-items: center;
-  position: relative;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+/* 제목과 버튼 정렬 */
+.audio-text {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: left;
 }
 
 .custom-play-button {
+  background-color: transparent;
+  border: none;
   margin-right: 10px; /* 오른쪽에 위치 */
   padding: 10px 20px;
-  background-color: #ff9900; /* 원하는 색상 */
-  border: none;
-  color: white;
+  color: #000000;
   cursor: pointer;
   font-size: 16px;
+}
+
+/* 구글 재생 버튼 숨기기 */
+iframe {
+  display: none;
 }
 
 .custom-play-button span {
@@ -72,13 +73,6 @@ iframe::after {
 .custom-play-button.playing span {
   width: 8px;
   height: 8px;
-}
-
-
-.audio-text {
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: bold;
 }
 
 audio {
@@ -91,22 +85,14 @@ audio {
     margin-top: 10px;
     display: flex;
     align-items: center;
-    max-width: 250px;
-}
-
-.profile-img {
-    width: 40px;
-    height: 40px;
-    background-color: gray;
-    border-radius: 50%;
-    margin-right: 10px;
+    max-width: 80%;
 }
 
 .speech-text {
     background-color: #f1f1f1;
     padding: 10px;
     border-radius: 15px;
-    max-width: 220px;
+    max-width: 80%;
     font-size: 14px;
     line-height: 1.5;
 }
