@@ -35,16 +35,33 @@ body {
     margin-top: 50px;
 }
 
-.audio-player {
-    width: 300px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.custom-play-button {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
 }
+
+.custom-play-button span {
+  display: block;
+  width: 9px;
+  height: 9px;
+}
+
+.custom-play-button.playing span {
+  width: 8px;
+  height: 8px;
+}
+
 
 .audio-text {
     margin-left: 10px;
