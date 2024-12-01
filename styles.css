@@ -31,7 +31,7 @@ body {
 /* 오디오 컨테이너 스타일 */
 .audio-container {
   width: 280px;
-  height: 36px;
+  height: 28px;
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
@@ -46,7 +46,7 @@ body {
 /* 제목과 버튼 정렬 */
 .audio-text {
   margin-left: 25px;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: regular;
   flex-grow: 1;
   text-align: left;
