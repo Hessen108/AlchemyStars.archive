@@ -28,33 +28,45 @@ body {
 
 }
 
+/* iframe 내의 구글 드라이브 재생 버튼 숨기기 */
+iframe {
+  position: relative;
+  width: 100%;  /* 원하는 크기로 설정 */
+  height: 100%;
+}
+
+iframe::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  visibility: hidden;  /* iframe 내 버튼 숨기기 */
+}
+
+/* 재생 버튼을 오른쪽에 정렬 */
 .audio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;  /* 오른쪽 정렬 */
+  align-items: center;
+  position: relative;
 }
 
 .custom-play-button {
-  width: 20px;
-  height: 20px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 10px; /* 오른쪽에 위치 */
+  padding: 10px 20px;
+  background-color: #ff9900; /* 원하는 색상 */
+  border: none;
+  color: white;
   cursor: pointer;
-  font-size: 9px;
-  font-weight: bold;
-  line-height: 1;
-  padding: 0;
+  font-size: 16px;
 }
 
 .custom-play-button span {
-  display: block;
-  width: 9px;
-  height: 9px;
+  font-size: 20px;
 }
 
 .custom-play-button.playing span {

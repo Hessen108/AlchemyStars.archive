@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
         iframe.src = `https://drive.google.com/file/d/${extractDriveId(audioLink)}/preview`; // 구글 드라이브 음성 파일 링크 업데이트
         playButton.innerHTML = "<span>■</span>";  // 버튼을 '■'로 변경
 
+        // 구글 드라이브 제공 재생 버튼도 클릭
+        const googlePlayButton = iframe.contentWindow.document.querySelector('.goog-imageless-button'); // 구글 재생 버튼 찾기
+        if (googlePlayButton) {
+          googlePlayButton.click();  // 구글 재생 버튼 클릭
+        }
+
         // 말풍선 표시
         bubble.style.display = "flex";
         text.innerHTML = ""; // 텍스트 초기화
