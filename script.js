@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const playIcon = container.querySelector('.play-icon');
     playIcon.src = imageViewLink;  // 이미지 src에 링크 적용
-  });
-});
+
+
 
 
     // 각 컨테이너에서 data 속성 가져오기
