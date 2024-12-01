@@ -1,61 +1,52 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
-  // 각 오디오 파일에 대해 재생 버튼을 클릭하면 음성 재생 및 말풍선 표시
-  const audioContainers = document.querySelectorAll('.audio-container'); // 모든 오디오 컨테이너 선택
+  const audioContainers = document.querySelectorAll('.audio-container'); 
 
   audioContainers.forEach((container, index) => {
     const playButton = container.querySelector('.custom-play-button');
-    const audioElement = container.querySelector('audio'); // audio 요소 선택
+    const audioElement = container.querySelector('audio');
     const bubble = document.getElementById(`bubble${index}`);
     const text = document.getElementById(`text${index}`);
-    const profileImg = container.querySelector('.profile-img'); // 프로필 이미지
-    const imageLinks = {
-       "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
-       "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
-    };
-    const imageName = container.getAttribute('data-image-name'); // play-icon, stop-icon 등
-    const imageViewLink = imageLinks[imageName]; // 링크 찾아오기
-    
     const playIcon = container.querySelector('.play-icon');
-    playIcon.src = imageViewLink;  // 이미지 src에 링크 적용
-
-
-
-
-    // 각 컨테이너에서 data 속성 가져오기
-    const title = container.getAttribute('data-title');
-    const content = container.getAttribute('data-content');
-    const audioId = container.getAttribute('data-id'); // E열에서 추출된 구글 드라이브 ID
-    const profileImageID = container.getAttribute('data-profile'); // G열에서 전달된 프로필 이미지 ID
-
-    // 프로필 이미지 설정
-    const imageViewLink = `https://drive.google.com/uc?export=view&id=${profileImageID}`;
-    if (profileImg) {
-      profileImg.style.backgroundImage = `url(${imageViewLink})`;
-    }
+    const imageLinks = {
+      "play-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/play.png",
+      "stop-icon": "https://raw.githubusercontent.com/Hessen108/AlchemyStars.archive/main/stop.png"
+    };
 
     playButton.addEventListener("click", () => {
-      if (audioElement.paused) { // 음성이 정지된 상태라면
-        audioElement.play(); // 음성 재생
-        playButton.innerHTML = "<span>■</span>"; // 버튼을 정지 아이콘으로 변경
-        bubble.style.display = "flex"; // 말풍선 표시
-        text.innerHTML = ""; // 텍스트 초기화
-        const script = content; // 대사 내용 가져오기
+      if (audioElement.paused) {
+        audioElement.play();
+        playIcon.src = imageLinks["stop-icon"];
+        bubble.style.display = "flex";
+        bubble.classList.remove("hidden"); // 페이드 인
+        text.innerHTML = ""; 
         let i = 0;
         const interval = setInterval(() => {
-          if (i < script.length) {
-            text.innerHTML += script.charAt(i); // 한 글자씩 출력
+          if (i < content.length) {
+            text.innerHTML += content.charAt(i);
             i++;
           } else {
-            clearInterval(interval); // 모든 글자가 출력되면 종료
+            clearInterval(interval);
           }
-        }, 100); // 100ms마다 한 글자씩 나타냄
-      } else { // 음성이 재생 중이라면
-        audioElement.pause(); // 음성 정지
-        playButton.innerHTML = "<span>▶</span>"; // 버튼을 재생 아이콘으로 변경
-        bubble.style.display = "none"; // 음성 정지 시 말풍선 숨김
+        }, 100);
+      } else {
+        audioElement.pause();
+        playIcon.src = imageLinks["play-icon"];
+        bubble.classList.add("hidden"); // 페이드 아웃
+        setTimeout(() => {
+          bubble.style.display = "none"; // 완전히 사라진 후 숨김 처리
+        }, 2000);
       }
+    });
+
+    // 오디오 재생 종료 시 아이콘 변경 및 말풍선 페이드 아웃 처리
+    audioElement.addEventListener("ended", () => {
+      playIcon.src = imageLinks["play-icon"];
+      setTimeout(() => {
+        bubble.classList.add("hidden"); // 5초 후 페이드 아웃
+      }, 5000);
+      setTimeout(() => {
+        bubble.style.display = "none"; // 페이드 아웃 후 완전히 숨김
+      }, 7000); // 총 7초 (5초 대기 + 2초 페이드 아웃)
     });
   });
 });
