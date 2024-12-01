@@ -62,7 +62,6 @@ body {
   align-items: center;
   justify-content: center; /* 가운데 정렬 */
   margin-right: 10px; /* 오른쪽에 위치 */
-  position: relative; /* 부모 컨테이너에 대해 위치를 지정 */
   z-index: 1;  /* 버튼이 항상 가장 위에 표시되도록 설정 */
 }
 
