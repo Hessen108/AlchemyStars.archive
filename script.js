@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
         audioElement.play();
         playIcon.src = imageLinks["stop-icon"];
         bubble.style.display = "flex";
+	bubble.style.opacity = "1"; // opacity를 다시 1로 설정
+        bubble.style.height = "auto"; // height를 자동으로 복원
         bubble.classList.remove("hidden");
         text.innerHTML = ""; 
         let i = 0;
@@ -69,19 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
       playIcon.src = imageLinks["play-icon"];
       bubble.classList.add("hidden");
       
-      bubble.style.transition = "opacity 1s ease"; // opacity 변경을 먼저 적용
-      bubble.style.opacity = "0"; // 흐려지기
-
-      // opacity가 0이 된 후, height를 서서히 줄임
+      // 5초 후에 opacity가 0으로 바뀌기 시작
       setTimeout(() => {
-        bubble.style.transition = "height 1s ease"; // height 변경을 설정
-        bubble.style.height = "0px"; // 세로 길이를 0으로 줄임
-      }, 1000); // 1초 후에 height 변경 시작
+        profileAndBubble.style.transition = "opacity 2s ease";
+        profileAndBubble.style.opacity = "0"; // 흐려지기
+      }, 5000);
 
-      // 2초 후에 bubble을 완전히 숨김
+      // opacity가 0으로 흐려진 후에 height를 0으로 줄이기
       setTimeout(() => {
-        bubble.style.display = "none"; // 완전히 사라지게 하기
-      }, 2000); 
+        profileAndBubble.style.transition = "height 2s ease";
+        profileAndBubble.style.height = "0px"; // 세로 길이를 0으로 줄임
+      }, 7000); // opacity 변경 후 7초 뒤에 height 변경
+
+      // 2초 후에 bubble을 완전히 숨기기
+      setTimeout(() => {
+        profileAndBubble.style.display = "none";
+      }, 9500); // 2초 후에 완전히 숨겨짐
     });
   });
 });

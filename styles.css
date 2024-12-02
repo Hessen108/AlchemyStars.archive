@@ -80,19 +80,39 @@ body {
   height: 8px;
 }
 
-
+/* 말풍선 스타일 */
 .speech-bubble {
-    display: none;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    max-width: 100%;
-    transition: opacity 2s ease-out; /* 2초 동안 서서히 사라지는 효과 */
-    opacity: 1; /* 기본 투명도 */
+  display: none;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  transition: opacity 2s ease-out, height 2s ease-out;
+  opacity: 1;
+  overflow: hidden;
+  height: auto; /* 초기 높이 */
 }
 
 .hidden {
   opacity: 0; /* 숨길 때 투명도 */
+  height: 0;
+}
+
+/* 프로필과 말풍선 컨테이너 */
+.profile-and-bubble {
+  display: flex;
+  align-items: center;  /* 세로로 정렬 */
+  justify-content: flex-start;
+}
+
+/* 프로필 이미지 스타일 */
+.profile-img {
+  width: 50px;  /* 원하는 크기로 설정 */
+  height: 50px;  /* 원하는 크기로 설정 */
+  border-radius: 50%;  /* 원형으로 만들기 */
+  object-fit: cover;  /* 이미지가 잘리지 않게 중앙에 맞춰서 크기 조절 */
+  overflow: hidden;  /* 이미지가 원형 영역을 벗어나지 않도록 숨김 */
+  background-color: #f1f1f1; /* 배경 색상, 필요에 따라 조정 */
 }
 
 .speech-text {
