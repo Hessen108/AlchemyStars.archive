@@ -108,8 +108,8 @@ body {
 /* 프로필 이미지 스타일 */
 .profile-img {
   display: none; /* 초기 상태에서 숨기기 */
-  width: 50px;  /* 원하는 크기로 설정 */
-  height: 50px;  /* 원하는 크기로 설정 */
+  width: 40px;  /* 원하는 크기로 설정 */
+  height: 40px;  /* 원하는 크기로 설정 */
   border-radius: 50%;  /* 원형으로 만들기 */
   object-fit: cover;  /* 이미지가 잘리지 않게 중앙에 맞춰서 크기 조절 */
   overflow: hidden;  /* 이미지가 원형 영역을 벗어나지 않도록 숨김 */
@@ -119,7 +119,7 @@ body {
 .speech-text {
     background-color: #f1f1f1;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 2px 50% 50% 50%;
     max-width: 80%;
     font-size: 14px;
     line-height: 1.5;
