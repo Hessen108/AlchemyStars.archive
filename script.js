@@ -12,13 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = document.getElementById(`text${index}`);
     const playIcon = container.querySelector('.play-icon'); // img 선택자
     const content = container.getAttribute('data-content'); // content 정의
+    const profileImageURL = container.getAttribute('data-profile'); // 프로필 이미지 URL 가져오기
     playIcon.src = imageLinks["play-icon"];  // 초기 play 이미지 설정
     playIcon.alt = "Play Icon";
     playButton.appendChild(playIcon);
 
+    // 프로필 이미지 설정
+    const profileImgDiv = bubble.querySelector('.profile-img');
+    const profileImg = document.createElement('img');
+    profileImg.src = profileImageURL;
+    profileImg.alt = "Profile Image";
+    profileImg.style.width = "50px"; // 원하는 크기 조정
+    profileImg.style.height = "50px"; // 원하는 크기 조정
+    profileImg.style.borderRadius = "50%"; // 원형으로 만들기
+    profileImgDiv.appendChild(profileImg);
 
     playButton.addEventListener("click", () => {
-      const audioElement = container.querySelector('audio');
       if (audioElement.paused) {
         audioElement.play();
         playIcon.src = imageLinks["stop-icon"];
