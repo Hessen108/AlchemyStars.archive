@@ -101,8 +101,8 @@ body {
 /* 프로필과 말풍선 컨테이너 */
 .profile-and-bubble {
   display: flex;
-  align-items: center;  /* 세로로 정렬 */
-  justify-content: flex-start;
+  align-items: center; /* 수직 정렬 */
+  gap: 10px; /* 프로필 이미지와 말풍선 사이 간격 */
 }
 
 /* 프로필 이미지 스타일 */
