@@ -67,12 +67,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audioElement.addEventListener("ended", () => {
       playIcon.src = imageLinks["play-icon"];
+      bubble.classList.add("hidden");
+      
+      bubble.style.transition = "opacity 1s ease"; // opacity 변경을 먼저 적용
+      bubble.style.opacity = "0"; // 흐려지기
+
+      // opacity가 0이 된 후, height를 서서히 줄임
       setTimeout(() => {
-        bubble.classList.add("hidden");
-      }, 5000);
+        bubble.style.transition = "height 1s ease"; // height 변경을 설정
+        bubble.style.height = "0px"; // 세로 길이를 0으로 줄임
+      }, 1000); // 1초 후에 height 변경 시작
+
+      // 2초 후에 bubble을 완전히 숨김
       setTimeout(() => {
-        bubble.style.display = "none";
-      }, 7000);
+        bubble.style.display = "none"; // 완전히 사라지게 하기
+      }, 2000); 
     });
   });
 });
