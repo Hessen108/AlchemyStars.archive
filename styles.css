@@ -39,8 +39,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  margin-top: 40px;
-  margin-bottom: 10px;
+  margin-top: 50px;
 }
 
 /* 제목과 버튼 정렬 */
@@ -84,10 +83,8 @@ body {
 .speech-bubble {
   display: flex;
   margin-top: 10px;
-  display: flex;
   align-items: center;
   max-width: 100%;
-  transition: opacity 2s ease-out, height 2s ease-out;
   opacity: 1;
   overflow: hidden;
   height: auto; /* 초기 높이 */
@@ -103,6 +100,7 @@ body {
   display: none;
   align-items: center; /* 수직 정렬 */
   gap: 10px; /* 프로필 이미지와 말풍선 사이 간격 */
+  transition: opacity 2s ease-out, height 2s ease-out;
 }
 
 /* 프로필 이미지 스타일 */
@@ -117,6 +115,8 @@ body {
 }
 
 .speech-text {
+    display: block;
+    opacity: 1;
     background-color: #f1f1f1;
     padding: 10px;
     border-radius: 2px 50% 50% 50%;
