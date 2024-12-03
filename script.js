@@ -52,11 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             clearInterval(interval);
           }
-        }, 50);
+        }, 100);
       } else {
         audioElement.pause();
         playIcon.src = imageLinks["play-icon"];
-
         setTimeout(() => {
         profileAndBubble.classList.add("hidden");
         }, 2000);
