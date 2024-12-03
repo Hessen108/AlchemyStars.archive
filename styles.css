@@ -100,7 +100,7 @@ body {
 /* 프로필과 말풍선 컨테이너 */
 .profile-and-bubble {
   display: none;
-  align-items: center; /* 수직 정렬 */
+  align-items: flex-start;  /*상단 정렬*/
   gap: 10px; /* 프로필 이미지와 말풍선 사이 간격 */
   transition: opacity 2s ease-out, height 2s ease-out;
 }
@@ -121,8 +121,10 @@ body {
     opacity: 1;
     background-color: #f1f1f1;
     padding: 8px;
-    border-radius: 2px 15px, 15px, 15px;
-    max-width: 100%;
+    border-radius: 2px 15px 15px 15px;
+    max-width: 80%;
     font-size: 14px;
     line-height: 1.5;
+    word-break: break-word;  /* 단어가 끊어지지 않도록 설정 */
+    white-space: normal;
 }
