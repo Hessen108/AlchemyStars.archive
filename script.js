@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         profileAndBubble.style.display = "flex";
         profileAndBubble.style.opacity = "1"; 
         profileAndBubble.style.height = "auto";
+        profileAndBubble.classList.remove("hidden");
 
         text.innerHTML = "";
         let i = 0;
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         playIcon.src = imageLinks["play-icon"];
 
         setTimeout(() => {
-          profileAndBubble.style.display = "none";
+        profileAndBubble.classList.add("hidden");
         }, 2000);
       }
     });
