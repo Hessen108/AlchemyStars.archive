@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const bubble = profileAndBubble.querySelector('.speech-bubble');
     const text = bubble.querySelector('.speech-text');
     let playIcon = playButton.querySelector('img');
+    console.log(profileAndBubble);
+
 
     const content = container.getAttribute('data-content');
     const profileImageURL = container.getAttribute('data-profile');
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         playIcon.src = imageLinks["stop-icon"];
         profileAndBubble.style.display = "flex";
         profileAndBubble.style.opacity = "1"; 
+        profileAndBubble.style.height = "auto";
 
         text.innerHTML = "";
         let i = 0;
@@ -49,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             clearInterval(interval);
           }
-        }, 100);
+        }, 50);
       } else {
         audioElement.pause();
         playIcon.src = imageLinks["play-icon"];

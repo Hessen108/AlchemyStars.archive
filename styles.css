@@ -82,7 +82,7 @@ body {
 
 /* 말풍선 스타일 */
 .speech-bubble {
-  display: none;
+  display: flex;
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -100,14 +100,14 @@ body {
 
 /* 프로필과 말풍선 컨테이너 */
 .profile-and-bubble {
-  display: flex;
+  display: none;
   align-items: center; /* 수직 정렬 */
   gap: 10px; /* 프로필 이미지와 말풍선 사이 간격 */
 }
 
 /* 프로필 이미지 스타일 */
 .profile-img {
-  display: none; /* 초기 상태에서 숨기기 */
+  display: flex;
   width: 40px;  /* 원하는 크기로 설정 */
   height: 40px;  /* 원하는 크기로 설정 */
   border-radius: 50%;  /* 원형으로 만들기 */
