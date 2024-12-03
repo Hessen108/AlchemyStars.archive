@@ -80,17 +80,6 @@ body {
   width: 8px;
   height: 8px;
 }
-
-/* 말풍선 스타일 */
-.speech-bubble {
-  display: flex;
-  margin-top: 0px;
-  align-items: center;
-  max-width: 100%;
-  opacity: 1;
-  height: auto; /* 초기 높이 */
-}
-
 .hidden {
   opacity: 0;
   height: 0;
@@ -113,7 +102,17 @@ body {
   border-radius: 50%;  /* 원형으로 만들기 */
   object-fit: cover;  /* 이미지가 잘리지 않게 중앙에 맞춰서 크기 조절 */
   overflow: hidden;  /* 이미지가 원형 영역을 벗어나지 않도록 숨김 */
-  background-color: #f1f1f1; /* 배경 색상, 필요에 따라 조정 */
+  background-color: #000000; /* 배경 색상, 필요에 따라 조정 */
+}
+
+/* 말풍선 스타일 */
+.speech-bubble {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  max-width: 100%;
+  opacity: 1;
+  height: auto; /* 초기 높이 */
 }
 
 .speech-text {
@@ -122,9 +121,7 @@ body {
     background-color: #f1f1f1;
     padding: 8px;
     border-radius: 2px 15px 15px 15px;
-    max-width: 80%;
+    max-width: 100%;
     font-size: 14px;
     line-height: 1.5;
-    word-break: break-word;  /* 단어가 끊어지지 않도록 설정 */
-    white-space: normal;
 }

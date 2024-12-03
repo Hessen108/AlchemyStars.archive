@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
         profileAndBubble.style.display = "flex";
         profileAndBubble.style.opacity = "1"; 
         profileAndBubble.style.height = "auto";
-        profileAndBubble.classList.remove("hidden");
 
         text.innerHTML = "";
         let i = 0;
@@ -56,9 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         audioElement.pause();
         playIcon.src = imageLinks["play-icon"];
-        setTimeout(() => {
-        profileAndBubble.classList.add("hidden");
-        }, 2000);
+        clearInterval(interval);
+      setTimeout(() => {
+        profileAndBubble.style.transition = "opacity 2s ease";
+        profileAndBubble.style.opacity = "0";
+      }, 2000);
+
+      setTimeout(() => {
+        profileAndBubble.style.transition = "height 2s ease";
+        profileAndBubble.style.height = "0px";
+      }, 4000);
       }
     });
 
@@ -74,10 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
         profileAndBubble.style.transition = "height 2s ease";
         profileAndBubble.style.height = "0px";
       }, 7000);
-
-      setTimeout(() => {
-        profileAndBubble.style.display = "none";
-      }, 9500);
     });
   });
 });
