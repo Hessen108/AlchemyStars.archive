@@ -91,8 +91,9 @@ body {
 }
 
 .hidden {
-  opacity: 0; /* 숨길 때 투명도 */
+  opacity: 0;
   height: 0;
+  transition: opacity 2s ease, height 2s ease;
 }
 
 /* 프로필과 말풍선 컨테이너 */
@@ -106,6 +107,7 @@ body {
 /* 프로필 이미지 스타일 */
 .profile-img {
   display: flex;
+  margin-top: 10px;
   width: 40px;  /* 원하는 크기로 설정 */
   height: 40px;  /* 원하는 크기로 설정 */
   border-radius: 50%;  /* 원형으로 만들기 */

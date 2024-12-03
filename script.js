@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let playIcon = playButton.querySelector('img');
     console.log(profileAndBubble);
 
-
     const content = container.getAttribute('data-content');
     const profileImageURL = container.getAttribute('data-profile');
 
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         audioElement.pause();
         playIcon.src = imageLinks["play-icon"];
-        bubble.classList.add("hidden");
 
         setTimeout(() => {
           profileAndBubble.style.display = "none";
@@ -66,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audioElement.addEventListener("ended", () => {
       playIcon.src = imageLinks["play-icon"];
-      bubble.classList.add("hidden");
 
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
