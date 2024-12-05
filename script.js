@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
       profileImage.src = profileImageURL;
       profileImageLinks[profileImageURL] = profileImage;
     }
-
+    
+    let interval; // 전역 변수로 선언하여 setInterval과 clearInterval 모두 참조 가능
+    
     playButton.addEventListener("click", () => {
       if (audioElement.paused) {
         audioElement.play();
@@ -56,12 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
         audioElement.pause();
 	audioElement.currentTime = 0;
         playIcon.src = imageLinks["play-icon"];
-        clearInterval(interval);
+        clearInterval(interval);]
+	text.innerHTML = "";
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
         profileAndBubble.style.opacity = "0";
       }, 2000);
-	text.innerHTML = "";
+	
 
       setTimeout(() => {
         profileAndBubble.style.transition = "height 2s ease";
