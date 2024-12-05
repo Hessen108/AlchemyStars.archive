@@ -78,8 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     audioElement.addEventListener("ended", () => {
       playIcon.src = imageLinks["play-icon"];
       clearInterval(interval);
-      i = 0;
-      text.innerHTML = "";
 
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
