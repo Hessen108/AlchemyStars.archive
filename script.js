@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audioElement.pause();
 	audioElement.currentTime = 0;
         playIcon.src = imageLinks["play-icon"];
-        clearInterval(interval);]
+        clearInterval(interval);
 	text.innerHTML = "";
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";

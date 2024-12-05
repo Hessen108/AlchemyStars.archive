@@ -100,6 +100,7 @@ body {
   width: 40px;  /* 원하는 크기로 설정 */
   height: 40px;  /* 원하는 크기로 설정 */
   border-radius: 50%;  /* 원형으로 만들기 */
+  border: 1px solid black;
   object-fit: cover;  /* 이미지가 잘리지 않게 중앙에 맞춰서 크기 조절 */
   overflow: hidden;  /* 이미지가 원형 영역을 벗어나지 않도록 숨김 */
   background-color: #000000; /* 배경 색상, 필요에 따라 조정 */
