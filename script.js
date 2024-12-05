@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         text.innerHTML = "";
         i = 0;
-        const interval = setInterval(() => {
+	text.innerHTML = "";
+        interval = setInterval(() => {
           if (i < content.length) {
             text.innerHTML += content.charAt(i);
             i++;
@@ -60,14 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	audioElement.currentTime = 0;
         playIcon.src = imageLinks["play-icon"];
         clearInterval(interval);
-	 i = 0;
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
         profileAndBubble.style.opacity = "0";
-	text.innerHTML = "";
+    	i = 0; // 인덱스 초기화
+    	text.innerHTML = "";
       }, 2000);
 	
-
       setTimeout(() => {
         profileAndBubble.style.transition = "height 2s ease";
         profileAndBubble.style.height = "0px";
