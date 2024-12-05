@@ -65,11 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             profileAndBubble.style.transition = "height 2s ease";
             profileAndBubble.style.height = "0px";
-
-            setTimeout(() => {
-              i = 0;
-              text.innerHTML = "";
-            }, 2000);
+            i = 0;
+            text.innerHTML = "";
           }, 2000);
         }, 2000);
       }
@@ -86,11 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           profileAndBubble.style.transition = "height 2s ease";
           profileAndBubble.style.height = "0px";
-
-          setTimeout(() => {
-            i = 0;
-            text.innerHTML = "";
-          }, 2000);
+          i = 0;
+          text.innerHTML = "";
         }, 2000);
       }, 5000);
     });
