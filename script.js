@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         profileAndBubble.style.opacity = "1"; 
         profileAndBubble.style.height = "auto";
 
-        text.innerHTML = "";
         i = 0;
 	text.innerHTML = "";
         interval = setInterval(() => {
@@ -64,10 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
         profileAndBubble.style.opacity = "0";
+      }, 2000);
     	i = 0; // 인덱스 초기화
     	text.innerHTML = "";
-      }, 2000);
-	
+
       setTimeout(() => {
         profileAndBubble.style.transition = "height 2s ease";
         profileAndBubble.style.height = "0px";
