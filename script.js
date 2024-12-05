@@ -54,12 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
       } else {
         audioElement.pause();
+	audioElement.currentTime = 0;
         playIcon.src = imageLinks["play-icon"];
         clearInterval(interval);
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
         profileAndBubble.style.opacity = "0";
       }, 2000);
+	text.innerHTML = "";
 
       setTimeout(() => {
         profileAndBubble.style.transition = "height 2s ease";
