@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     let interval; // 전역 변수로 선언하여 setInterval과 clearInterval 모두 참조 가능
+    let i = 0; // 전역 변수로 인덱스를 관리
     
     playButton.addEventListener("click", () => {
       if (audioElement.paused) {
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         profileAndBubble.style.height = "auto";
 
         text.innerHTML = "";
-        let i = 0;
+        i = 0;
         const interval = setInterval(() => {
           if (i < content.length) {
             text.innerHTML += content.charAt(i);
@@ -59,10 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	audioElement.currentTime = 0;
         playIcon.src = imageLinks["play-icon"];
         clearInterval(interval);
-	text.innerHTML = "";
+	 i = 0;
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
         profileAndBubble.style.opacity = "0";
+	text.innerHTML = "";
       }, 2000);
 	
 
@@ -75,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audioElement.addEventListener("ended", () => {
       playIcon.src = imageLinks["play-icon"];
+      clearInterval(interval); // 애니메이션 종료
+      i = 0; // 인덱스 초기화
+      text.innerHTML = ""; // 텍스트 초기화
 
       setTimeout(() => {
         profileAndBubble.style.transition = "opacity 2s ease";
